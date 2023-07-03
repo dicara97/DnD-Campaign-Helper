@@ -88,6 +88,7 @@ nz-content {
 
 ::ng-deep .ant-menu-submenu-selected {
   color: goldenrod;
+  background-color: #012140;
 }
 
 ::ng-deep ::selection {
@@ -138,3 +139,24 @@ nz-content {
 ::ng-deep .ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover {
   background-color: goldenrod;
 }
+
+::ng-deep .ant-menu-sub.ant-menu-inline {
+  border: 0;
+  background-color: #001529;
+  color: darkgray;
+  }
+
+  ::ng-deep .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: #012140;
+    }
+
+
+::ng-deep .ant-menu-submenu-arrow {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  width: 10px;
+  color: #fff;
+  transform: translateY(-50%);
+  transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
