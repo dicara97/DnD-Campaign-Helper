@@ -78,3 +78,63 @@ nz-content {
   background: #fff;
   height: 100%;
 }
+
+
+::ng-deep .ant-menu-root.ant-menu-vertical, .ant-menu-root.ant-menu-vertical-left, .ant-menu-root.ant-menu-vertical-right, .ant-menu-root.ant-menu-inline {
+  box-shadow: none;
+  background-color: #001529;
+  color: #fff;
+}
+
+::ng-deep .ant-menu-submenu-selected {
+  color: goldenrod;
+}
+
+::ng-deep ::selection {
+  color: #fff;
+  background: goldenrod;
+}
+
+::ng-deep .ant-menu-light .ant-menu-item:hover, .ant-menu-light .ant-menu-item-active, .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .ant-menu-light .ant-menu-submenu-active, .ant-menu-light .ant-menu-submenu-title:hover {
+  color: goldenrod;
+}
+
+::ng-deep .ant-menu-item-selected {
+  color: goldenrod;
+}
+
+::ng-deep .ant-menu-item-selected:hover {
+  color: goldenrod;
+}
+
+::ng-deep .ant-menu-vertical .ant-menu-item::after, .ant-menu-vertical-left .ant-menu-item::after, .ant-menu-vertical-right .ant-menu-item::after, .ant-menu-inline .ant-menu-item::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-right: 3px solid goldenrod;
+  transform: scaleY(0.0001);
+  opacity: 0;
+  transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+  content: '';
+}
+
+::ng-deep .ant-menu-light .ant-menu-submenu-title:hover {
+  color: goldenrod;
+}
+
+::ng-deep .ant-menu-light .ant-menu-item:hover, .ant-menu-light .ant-menu-item-active, .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .ant-menu-light .ant-menu-submenu-active, .ant-menu-light .ant-menu-submenu-title:hover {
+  color: goldenrod !important;
+}
+
+::ng-deep .ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow {
+  color: goldenrod;
+}
+
+::ng-deep .ant-menu.ant-menu-dark .ant-menu-item-selected {
+  background-color: goldenrod;
+}
+
+::ng-deep .ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover {
+  background-color: goldenrod;
+}

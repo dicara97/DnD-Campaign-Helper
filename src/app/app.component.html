@@ -1,19 +1,29 @@
 <nz-layout class="app-layout">
   <nz-layout>
     <nz-header>
-      <div class="logo"></div>
+      <div class="logo">
+      </div>
       <ul nz-menu nzTheme="dark" nzMode="horizontal" class="header-menu">
-        <li nz-menu-item nzSelected>nav 1</li>
-        <li nz-menu-item>nav 2</li>
-        <li nz-menu-item>nav 3</li>
+        <div style="display: flex;">
+          <li nz-menu-item>nav 1</li>
+          <li nz-menu-item>nav 2</li>
+          <li nz-menu-item>nav 3</li>
+        </div>
+        <img
+        nz-image
+        width="200px"
+        height="200px"
+        nzSrc="gatto.png"
+        alt=""
+      />
       </ul>
     </nz-header>
     <nz-layout>
-      <nz-sider nzWidth="200px" nzTheme="light">
+      <nz-sider nzWidth="200px" nzTheme="dark">
         <ul nz-menu nzMode="inline" class="sider-menu">
-          <li nz-submenu nzOpen nzIcon="user" nzTitle="subnav 1">
+          <li nz-submenu nzIcon="user" nzTitle="subnav 1">
             <ul>
-              <li nz-menu-item nzSelected>option1</li>
+              <li nz-menu-item>option1</li>
               <li nz-menu-item>option2</li>
               <li nz-menu-item>option3</li>
               <li nz-menu-item>option4</li>
