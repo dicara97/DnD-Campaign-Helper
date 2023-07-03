@@ -1,15 +1,41 @@
-
-
-  <nz-list nzGrid>
-    <div nz-row [nzGutter]="16">
-      <div nz-col [nzXXl]="8" [nzXl]="8" [nzLg]="6" [nzMd]="6" [nzSm]="12" [nzXs]="8" *ngFor="let item of data; let i = index">
-        <nz-list-item    >
-          <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
-            <nz-card-meta nzTitle="Europe Street beat" nzDescription="www.instagram.com"></nz-card-meta>
-          </nz-card>
-          <ng-template #coverTemplate>
-            <ng-container *ngIf="!item.img.url">
-              <nz-upload
+<nz-list nzGrid>
+  <div nz-row [nzGutter]="16">
+    <div
+      nz-col
+      [nzXXl]="8"
+      [nzXl]="8"
+      [nzLg]="6"
+      [nzMd]="6"
+      [nzSm]="12"
+      [nzXs]="8"
+      *ngFor="let item of data; let i = index"
+    >
+      <nz-list-item>
+        <nz-card
+          nzHoverable
+          style="width: 240px"
+          [nzCover]="coverTemplate"
+          *ngIf="!data[i].isEmpty"
+        >
+          <nz-card-meta
+            nzTitle="Europe Street beat"
+            nzDescription="www.instagram.com"
+          ></nz-card-meta>
+        </nz-card>
+        <nz-card
+          nzHoverable
+          style="width: 240px; text-align: center"
+          [nzCover]="emptyTemplate"
+          *ngIf="data[i].isEmpty"
+        >
+          <nz-card-meta
+            nzTitle="404"
+            nzDescription="Nessuna campagna trovata! Creane una!"
+          ></nz-card-meta>
+        </nz-card>
+        <ng-template #coverTemplate>
+          <ng-container *ngIf="!item.img.url">
+            <nz-upload
               class="avatar-uploader"
               nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
               nzListType="picture-card"
@@ -20,39 +46,29 @@
                 <div style="margin-top: 8px">Upload</div>
               </div>
             </nz-upload>
-            </ng-container>       
-            <ng-container *ngIf="item.img.url">
-              <img alt="example" [src]="item.img.url" />
-            </ng-container>
-
-          </ng-template>
-        </nz-list-item>
-      </div>
+          </ng-container>
+          <ng-container *ngIf="item.img.url">
+            <img alt="example" [src]="item.img.url" />
+          </ng-container>
+        </ng-template>
+        <ng-template #emptyTemplate>
+          <div style="margin-top: 5%; padding-top: 5%">
+            <button
+              style="width: 70px; height: 70px"
+              nz-button
+              nzType="dashed"
+              nzShape="circle"
+              (click)="addCampaign(item)"
+            >
+              <span
+                style="font-size: 50px; opacity: 50%; font-weight: 800"
+                nz-icon
+                nzType="plus"
+              ></span>
+            </button>
+          </div>
+        </ng-template>
+      </nz-list-item>
     </div>
-  </nz-list>
-
-  <!-- <h1>新增应该与其水平</h1>
-  <div class="clearfix">
-    <nz-upload
-      nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-      nzListType="picture-card"
-      [(nzFileList)]="fileList"
-      [nzShowButton]="fileList.length < 8"
-      [nzPreview]="handlePreview"
-    >
-      <div>
-        <i nz-icon nzType="plus"></i>
-        <div style="margin-top: 8px">Upload</div>
-      </div>
-    </nz-upload>
-    <nz-modal
-      [nzVisible]="previewVisible"
-      [nzContent]="modalContent"
-      [nzFooter]="null"
-      (nzOnCancel)="previewVisible = false"
-    >
-      <ng-template #modalContent>
-        <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
-      </ng-template>
-    </nz-modal>
-  </div> -->
+  </div>
+</nz-list>

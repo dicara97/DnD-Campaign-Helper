@@ -23,28 +23,9 @@ export class WelcomeComponent implements OnInit {
   data = [
     {
       title: 'Title 1',
-      img: {url: undefined}
+      img: {url: undefined},
+      isEmpty: true
     },
-    {
-      title: 'Title 2',
-      img: {url: undefined}
-    },
-    {
-      title: 'Title 3',
-      img: {url: undefined}
-    },
-    {
-      title: 'Title 4',
-      img: {url: undefined}
-    },
-    {
-      title: 'Title 5',
-      img: {url: undefined}
-    },
-    {
-      title: 'Title 6',
-      img: {url: undefined}
-    }
   ];
   fileList: NzUploadFile[] = [
     {
@@ -59,9 +40,11 @@ export class WelcomeComponent implements OnInit {
   constructor(private msg: NzMessageService) { }
 
   ngOnInit() {
-    let data = JSON.parse(localStorage.getItem('data') || '{}')
-    if(data)
-    this.data = data
+    if(localStorage.getItem('data')){
+      let data = JSON.parse(localStorage.getItem('data') || '{}')
+      this.data = data
+    }
+
   }
 
 
@@ -79,6 +62,10 @@ export class WelcomeComponent implements OnInit {
       url: event.file.thumbUrl
     }
     localStorage.setItem('data', JSON.stringify(this.data))
+  }
+
+  addCampaign(item: any){
+    console.log(item)
   }
 
 }
