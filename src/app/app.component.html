@@ -4,23 +4,27 @@
       <div class="logo">
       </div>
       <ul nz-menu nzTheme="dark" nzMode="horizontal" class="header-menu">
-        <div style="display: flex;">
+        <div style="display: flex;    position: absolute;
+        right: 0px;
+        top: 0px;">
           <li nz-menu-item>nav 1</li>
           <li nz-menu-item>nav 2</li>
           <li nz-menu-item>nav 3</li>
         </div>
-        <img
-        nz-image
-        width="200px"
-        height="200px"
-        nzSrc="gatto.png"
-        alt=""
-      />
+        <div style="position: absolute;
+    left: 20px;
+    top: 0px;">
+          <img
+          nz-image
+          width="150px"
+          height="50px"
+           src="../assets/icons\dnd.png"/>
+        </div>
       </ul>
     </nz-header>
     <nz-layout>
       <nz-sider nzWidth="200px" nzTheme="dark">
-        <ul nz-menu nzMode="inline" class="sider-menu">
+        <ul nz-menu nzMode="inline" class="sider-menu" style="margin-left: 1px;">
           <li nz-submenu nzIcon="user" nzTitle="subnav 1">
             <ul>
               <li nz-menu-item>option1</li>
@@ -48,11 +52,6 @@
         </ul>
       </nz-sider>
       <nz-layout class="inner-layout">
-        <nz-breadcrumb>
-          <nz-breadcrumb-item>Home</nz-breadcrumb-item>
-          <nz-breadcrumb-item>List</nz-breadcrumb-item>
-          <nz-breadcrumb-item>App</nz-breadcrumb-item>
-        </nz-breadcrumb>
         <nz-content><router-outlet></router-outlet></nz-content>
       </nz-layout>
     </nz-layout>
