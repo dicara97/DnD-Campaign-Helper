@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzUploadFile } from 'ng-zorro-antd/upload';
 import { Observable, Observer } from 'rxjs';
@@ -19,7 +20,9 @@ const getBase64 = (file: File): Promise<string | ArrayBuffer | null> =>
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-
+  isVisibleCreate: boolean = false;
+  selectedCampaign: any;
+  addCampaignForm!: UntypedFormGroup;
   data = [
     {
       title: 'Title 1',
@@ -37,7 +40,7 @@ export class WelcomeComponent implements OnInit {
   ];
   previewImage: string | undefined = '';
   previewVisible = false;
-  constructor(private msg: NzMessageService) { }
+  constructor(private fb: UntypedFormBuilder) { }
 
   ngOnInit() {
     if(localStorage.getItem('data')){
@@ -64,8 +67,36 @@ export class WelcomeComponent implements OnInit {
     localStorage.setItem('data', JSON.stringify(this.data))
   }
 
-  addCampaign(item: any){
-    console.log(item)
+  addCampaign(campaing: any){
+    this.isVisibleCreate = true;
+    this.selectedCampaign = campaing;
+  }
+
+  
+  handleCancelCreate() {
+    this.isVisibleCreate = false;
+  }
+
+
+  deleteOrder(){
+    // this.orderService.deleteOrder(this.deletedId).subscribe({
+    //   next: () => {
+    //     this.isVisibleDelete = false
+    //     this.message.success('ordine eliminato correttamente')
+    //     this.queryRequest()
+    //   },
+    //   error: (error) => {
+    //     this.message.error(error.error);
+    //   },
+    // });
+  }
+
+  createForm(){
+    this.addCampaignForm = this.fb.group({
+      userName: [null, [Validators.required]],
+      password: [null, [Validators.required]],
+      remember: [true]
+    });
   }
 
 }

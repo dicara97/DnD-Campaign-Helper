@@ -72,3 +72,26 @@
     </div>
   </div>
 </nz-list>
+
+
+<nz-modal class="fontEdit"  [(nzVisible)]="isVisibleCreate" (nzOnCancel)="handleCancelCreate()" nzMaskClosable = false>
+  <ng-container *nzModalContent>
+    <div class="textAlignCenter">
+      <div>
+        <h1>Sei sicuro di voler</h1>
+        <h1 style="margin-top: -4%">eliminare l'ordine??</h1>
+      </div>
+      <p style="font-size: 12px">Non sarà possibile ripristinarlo</p>
+    </div>
+  </ng-container>
+  <ng-container *nzModalFooter>
+    <div class="styleModalExit">
+      <button nz-button nzType="primary" class="buttonNext" (click)="deleteOrder()" style="margin-left: 2%;">
+        Si
+      </button>        
+      <button nz-button nzType="primary" class="buttonNext" (click)="handleCancelCreate()" style="margin-left: 2%;">
+        No
+      </button>
+    </div>
+  </ng-container>
+</nz-modal>

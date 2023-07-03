@@ -13,6 +13,7 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzFormModule } from 'ng-zorro-antd/form';
 @NgModule({
   imports: [
     WelcomeRoutingModule,
@@ -24,7 +25,8 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
     NzMessageModule,
     NzIconModule,
     NzModalModule,
-    NzButtonModule
+    NzButtonModule,
+    NzFormModule
   ],
   declarations: [WelcomeComponent],
   exports: [WelcomeComponent],
